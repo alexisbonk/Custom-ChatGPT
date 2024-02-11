@@ -1,8 +1,10 @@
 import { useRef, useEffect, useState } from "react";
 import Lottie from "lottie-react";
-import PromptAnimation from '../assets/prompt.json';
-import PromptPlayedAnimation from '../assets/played-prompt.json';
-import { useMainContext } from "../hooks/useMainContext";
+import PromptAnimation from '../../assets/prompt.json';
+import PromptPlayedAnimation from '../../assets/played-prompt.json';
+import { useMainContext } from "../../hooks/useMainContext";
+
+import './Animation.css';
 
 export const StartScreen = ({ onStartButtonClicked }) => {
   const [displayCursor, setDisplayCursor] = useState(false);

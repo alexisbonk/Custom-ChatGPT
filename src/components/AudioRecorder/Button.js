@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import useDevice from "../../hooks/useDevice";
 import { useMainContext } from "../../hooks/useMainContext";
 import { useMount } from "../../hooks/useMount";
@@ -15,22 +15,25 @@ export const Button = ({ stopAudioPlayback, startRecording, stopRecording }) => 
     else if (isRecording && !timerRunning) startTimer();
   }, [isRecording, startTimer, stopTimer, timerRunning]);
 
-  if (isMobile) return null;
+  const defaultText = useMemo(() => isMobile ? 'Tap and hold to talk' : 'Hold Space and talk', [isMobile]);
+
   return (
     <div
       className={`main-button button-animations ${isMounted ? '' : 'hidden'}`}
       onClick={() => isPlaying && stopAudioPlayback()}
-      onMouseDown={() => !isRecording && !isProcessing && !isPlaying && startRecording()}
-      onMouseUp={() => isRecording && stopRecording()}
+      onMouseDown={() => !isMobile && !isRecording && !isProcessing && !isPlaying && startRecording()}
+      onMouseUp={() => !isMobile && isRecording && stopRecording()}
     >
-      {isRecording && (
-        <div>
-          {minutes + ':' + seconds.toString().padStart(2, '0') + '.' + centiseconds.toString().padStart(2, '0')} | RECORDING...
-        </div>
-      )}
-      {isPlaying && <div className="stop-icon" />}
-      {isProcessing && 'Processing...'}
-      {!isPlaying && !isRecording && !isProcessing && 'Hold Space and talk'}
+      <div style={{ pointerEvents: 'none' }}>
+        {isRecording && (
+          <div>
+            {minutes + ':' + seconds.toString().padStart(2, '0') + '.' + centiseconds.toString().padStart(2, '0')} | RECORDING...
+          </div>
+        )}
+        {isPlaying && <div className="stop-icon" />}
+        {isProcessing && 'Processing...'}
+        {!isPlaying && !isRecording && !isProcessing && defaultText}
+      </div>
     </div>
   );
 };

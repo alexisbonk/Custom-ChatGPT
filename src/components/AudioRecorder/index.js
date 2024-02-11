@@ -9,6 +9,8 @@ import './AudioRecorder.css';
 
 export const AudioRecorder = () => {
   const {
+    isPlaying,
+    isProcessing,
     setIsPlaying,
     setIsRecording,
     isRecording,
@@ -130,8 +132,8 @@ export const AudioRecorder = () => {
   return (
     <div
       className='audio-recorder-container'
-      onTouchStart={() => startRecording()}
-      onTouchEnd={() => stopRecording()}
+      onTouchStart={() => !isRecording && !isProcessing && !isPlaying && startRecording()}
+      onTouchEnd={() => isRecording && stopRecording()}
     >
       <Button stopAudioPlayback={stopAudioPlayback} startRecording={startRecording} stopRecording={stopRecording} />
       <audio controls ref={audioTagRef} style={{ display: 'none' }}/>

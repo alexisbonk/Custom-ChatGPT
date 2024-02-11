@@ -23,3 +23,56 @@
 .button-animations:active {
   transform: scale(0.98);
 }
+
+/* Heartbeat Animation */
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+
+  14% {
+    transform: scale(1.2);
+  }
+
+  28% {
+    transform: scale(1);
+  }
+
+  42% {
+    transform: scale(1.2);
+  }
+
+  70% {
+    transform: scale(var(1));
+  }
+
+  100% {
+    transform: scale(var(1));
+  }
+}
+
+.heartbeat {
+  transition: transform 1s;
+}
+
+.heartbeat-animate {
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes rotateInfinite {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.rotate {
+  animation: rotateInfinite 8s linear infinite;
+}
+
+.rotate:hover {
+  animation: rotateInfinite 3s linear infinite;
+}
