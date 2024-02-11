@@ -1,0 +1,25 @@
+:root {
+  --darkest-grey: #111112;
+  --darker-grey: #19191c;
+  --dark-grey: #1f1f24;
+  --main-grey: #282c34;
+}
+
+.button-animations {
+  background-color: var(--dark-grey);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.button-animations-transition {
+  transition: all 0.2s ease-out;
+}
+
+.button-animations:hover {
+  background-color: var(--darker-grey);
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+  transform: scale(1.02);
+}
+
+.button-animations:active {
+  transform: scale(0.98);
+}

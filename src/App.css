@@ -1,6 +1,8 @@
+@import url('./common.css');
+
 .App {
   text-align: center;
-  background-color: #282c34;
+  background-color: var(--main-grey);
   width: 100vw;
   height: 100vh;
   overflow: hidden;
@@ -14,11 +16,7 @@
 }
 
 .App-start {
-  background-color: #111112;
-}
-
-.App-link {
-  color: #61dafb;
+  background-color: var(--darkest-grey);
 }
 
 @keyframes App-logo-spin {
@@ -49,7 +47,11 @@
   }
 
   70% {
-    transform: scale(1);
+    transform: scale(var(1));
+  }
+
+  100% {
+    transform: scale(var(1));
   }
 }
 
@@ -79,19 +81,6 @@
   animation: rotateInfinite 3s linear infinite;
 }
 
-.blurred-background {
-  backdrop-filter: blur(4px);
-}
-
-.start-button-letter {
-  height: 40px;
-  position: absolute;
-  width: 20px;
-  left: 0;
-  top: 0;
-  transform-origin: center 190px;
-}
-
 .start-screen-container {
   position: absolute;
   width: 100vw;
@@ -118,7 +107,42 @@
 .lottie-animation {
   width: 50vw;
   transition: transform 0.2s ease-out;
+  cursor: none;
+  --cursor-x: 0px;
+  --cursor-y: 0px;
+}
+
+.lottie-animation:hover {
+  transform: scale(1.5);
+}
+
+.lottie-animation:hover.heartbeat-animate {
+  transform: none;
+}
+
+.lottie-animation.start-pressed {
+  transition: transform 0.5s ease-out;
+}
+
+#lottie-cursor {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
   pointer-events: none;
+  mix-blend-mode: difference;
+  z-index: 10000;
+  background-color: white;
+  left: var(--cursor-x);
+  top: var(--cursor-y);
+  opacity: 1;
+  transition: width 0.2s ease-out, height 0.2s ease-out;
+}
+
+#lottie-cursor.hidden {
+  width: 0;
+  height: 0;
 }
 
 @media (max-width: 1000px) {
@@ -175,26 +199,11 @@
   justify-content: center;
   align-items: center;
   transition: left 0.2s ease-out;
-  background-color: #1f1f24;
+  background-color: var(--dark-grey);
   padding: 20px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
 
 .aside:hover {
   left: 0;
-}
-
-.audio-recorder-container {
-  position: absolute;
-  width: 100%;
-  height: 200px;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-
-.audio-recorder-container {
-  width: 100%;
-  height: 100%;
 }

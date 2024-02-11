@@ -2,10 +2,12 @@ import { useRef, useEffect, useState } from "react";
 import Lottie from "lottie-react";
 import PromptAnimation from '../assets/prompt.json';
 import PromptPlayedAnimation from '../assets/played-prompt.json';
+import { useMainContext } from "../hooks/useMainContext";
 
-export const StartScreen = ({ audioPlaying, isRecording, onStartButtonClicked }) => {
-  const [showStartButton, setShowStartButton] = useState(true); 
-  const lottieRef = useRef(null)
+export const StartScreen = ({ onStartButtonClicked }) => {
+  const [displayCursor, setDisplayCursor] = useState(false);
+  const { isPlaying, startPressed, setStartPressed, isRecording } = useMainContext();
+  const lottieRef = useRef(null);
 
   const handleMouseEnter = () => {
     lottieRef.current?.play();
@@ -19,15 +21,25 @@ export const StartScreen = ({ audioPlaying, isRecording, onStartButtonClicked })
     lottieRef.current?.goToAndStop(120, true);
   }, []);
 
+  const showCursor = () => {
+    lottieRef.current?.setSpeed(1.8)
+    setDisplayCursor(true);
+  };
+
+  const hideCursor = () => {
+    lottieRef.current?.setSpeed(1)
+    setDisplayCursor(false);
+  }
+
   return (
-    <div className="start-screen-container" style={showStartButton ? {} : { pointerEvents: 'none' }}>
-      {showStartButton && (
+    <div className="start-screen-container">
+      {!startPressed && (
         <div
           className="start-button"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
           onClick={() => {
-            setShowStartButton(false);
+            setStartPressed(true);
             onStartButtonClicked && onStartButtonClicked();
           }}
         >
@@ -40,11 +52,16 @@ export const StartScreen = ({ audioPlaying, isRecording, onStartButtonClicked })
         </div>
       )}
       <Lottie 
-        className={`lottie-animation heartbeat ${audioPlaying || isRecording ? 'heartbeat-animate' : ''}`}
-        animationData={audioPlaying ? PromptPlayedAnimation : PromptAnimation}
+        className={`lottie-animation heartbeat ${isPlaying || isRecording ? 'heartbeat-animate' : ''} ${startPressed ? 'start-pressed' : ''}`}
+        animationData={isPlaying ? PromptPlayedAnimation : PromptAnimation}
         loop={true}
         lottieRef={lottieRef}
+        style={!startPressed ? { pointerEvents: 'none' } : {}}
+        onMouseEnter={showCursor}
+        onMouseLeave={hideCursor}
+        onMouseMove={() => !displayCursor && showCursor()}
       />
+      <div id="lottie-cursor" className={displayCursor ? '' : 'hidden'} />
     </div>
   );
 };

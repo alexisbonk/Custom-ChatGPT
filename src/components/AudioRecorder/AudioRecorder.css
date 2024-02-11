@@ -1,0 +1,44 @@
+@import url('../../common.css');
+
+.audio-recorder-container {
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  bottom: 0;
+}
+
+.main-button {
+  position: absolute;
+  margin-left: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+  border-radius: 30px;
+  font-size: 15px;
+  text-transform: uppercase;
+  padding: 15px 30px;
+  max-width: 500px;
+  font-weight: lighter;
+  letter-spacing: 4px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  bottom: 0;
+  transition: background-color 0.2s ease-out, box-shadow 0.2s ease-out, transform 0.2s ease-out, bottom 0.5s ease-out;
+}
+
+.main-button.hidden {
+  bottom: -800px;
+}
+
+.stop-icon {
+  width: 20px;
+  height: 20px;
+  margin: 0 10px;
+  background-color: white;
+}
