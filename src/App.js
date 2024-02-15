@@ -1,7 +1,8 @@
 import React from 'react';
 import Animation from './components/Animation';
-import Drawer from './components/Drawer';
+import Buttons from './components/Buttons';
 import AudioRecorder from './components/AudioRecorder';
+import Drawer from './components/Drawer';
 import { useMainContext } from './hooks/useMainContext';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       {
         startPressed && (
           <>
+            <Buttons />
             <AudioRecorder />
             <Drawer />
           </>

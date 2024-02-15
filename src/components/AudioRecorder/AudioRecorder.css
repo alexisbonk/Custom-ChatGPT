@@ -13,13 +13,13 @@
 }
 
 
-@media screen and (min-width: 600px){
+@media screen and (min-width: 600px) {
   .audio-recorder-container {
     height: 200px;
   }
 }
 
-.main-button {
+.record-button {
   position: absolute;
   margin-left: 20px;
   margin-right: 20px;
@@ -39,7 +39,7 @@
   transition: background-color 0.2s ease-out, box-shadow 0.2s ease-out, transform 0.2s ease-out, bottom 0.5s ease-out;
 }
 
-.main-button.hidden {
+.record-button.hidden {
   bottom: -800px;
 }
 

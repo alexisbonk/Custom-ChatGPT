@@ -4,7 +4,7 @@ import { useMainContext } from "../../hooks/useMainContext";
 import { useMount } from "../../hooks/useMount";
 import useTimer from "../../hooks/useTimer";
 
-export const Button = ({ stopAudioPlayback, startRecording, stopRecording }) => {
+export const RecordButton = ({ stopAudioPlayback, startRecording, stopRecording }) => {
   const { isMobile } = useDevice();
   const { isPlaying, isProcessing, isRecording } = useMainContext();
   const isMounted = useMount();
@@ -19,7 +19,7 @@ export const Button = ({ stopAudioPlayback, startRecording, stopRecording }) => 
 
   return (
     <div
-      className={`main-button button-animations ${isMounted ? '' : 'hidden'}`}
+      className={`record-button button-animations ${isMounted ? '' : 'hidden'}`}
       onClick={() => isPlaying && stopAudioPlayback()}
       onMouseDown={() => !isMobile && !isRecording && !isProcessing && !isPlaying && startRecording()}
       onMouseUp={() => !isMobile && isRecording && stopRecording()}
@@ -38,4 +38,4 @@ export const Button = ({ stopAudioPlayback, startRecording, stopRecording }) => 
   );
 };
 
-export default Button;
+export default RecordButton;

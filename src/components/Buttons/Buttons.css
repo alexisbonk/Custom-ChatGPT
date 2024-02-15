@@ -1,0 +1,47 @@
+.loop-button {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  cursor: pointer;
+  border-radius: 30px;
+  font-size: 15px;
+  text-transform: uppercase;
+  padding: 15px 15px;
+  max-width: 500px;
+  font-weight: lighter;
+  letter-spacing: 4px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  z-index: 1;
+  transition: background-color 0.2s ease-out, box-shadow 0.2s ease-out, transform 0.2s ease-out, bottom 0.5s ease-out;
+}
+
+.loop-button.hidden {
+  top: 800px;
+}
+
+.reset-button {
+  position: absolute;
+  right: 90px;
+  top: 30px;
+  cursor: pointer;
+  border-radius: 30px;
+  font-size: 15px;
+  text-transform: uppercase;
+  padding: 15px 15px;
+  max-width: 500px;
+  font-weight: lighter;
+  letter-spacing: 4px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  z-index: 1;
+  transition: background-color 0.2s ease-out, box-shadow 0.2s ease-out, transform 0.2s ease-out, bottom 0.5s ease-out;
+}
+
+.reset-button.hidden {
+  top: 800px;
+}

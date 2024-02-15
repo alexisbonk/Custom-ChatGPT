@@ -3,7 +3,7 @@ import React, { useRef, useEffect, useCallback } from 'react';
 import { sendPromptToChatGpt, selfDiscuss } from '../../api/openai';
 import { sendAudioToGoogleSpeechToText, sendTextToGoogleTextToSpeech } from '../../api/gcloud/index'
 import { useMainContext } from '../../hooks/useMainContext';
-import Button from './Button';
+import RecordButton from './RecordButton';
 
 import './AudioRecorder.css';
 
@@ -136,7 +136,7 @@ export const AudioRecorder = () => {
       onTouchStart={() => !isRecording && !isProcessing && !isPlaying && startRecording()}
       onTouchEnd={() => isRecording && stopRecording()}
     >
-      <Button stopAudioPlayback={stopAudioPlayback} startRecording={startRecording} stopRecording={stopRecording} />
+      <RecordButton stopAudioPlayback={stopAudioPlayback} startRecording={startRecording} stopRecording={stopRecording} />
       <audio controls ref={audioTagRef} style={{ display: 'none' }}/>
     </div>
   );

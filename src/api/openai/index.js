@@ -50,7 +50,7 @@ export const selfDiscuss = async (prompt, version) => {
       model: version.value,
     });
     
-    history.push(completion.choices[0].message);
+    //history.push(completion.choices[0].message);
     console.log("GPT history:", history)
     return completion.choices[0].message.content.trim();
   } catch (error) {

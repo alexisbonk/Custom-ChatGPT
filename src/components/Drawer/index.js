@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Lottie from "lottie-react";
-import { setPrimarySystemPrompt, setSecondarySystemPrompt, setInitialHistory } from '../../api/openai';
+import { setPrimarySystemPrompt, setSecondarySystemPrompt } from '../../api/openai';
 import { useMount } from '../../hooks/useMount';
 import { voices, versions } from '../../utils/constants';
 import { useMainContext } from '../../hooks/useMainContext';
@@ -29,8 +29,6 @@ const Drawer = () => {
     setSelectedVoice,
     selectedVersion,
     setSelectedVersion,
-    selfDiscussEnabled,
-    setSelfDiscussedEnabled,
     selectedEmoji,
     setSelectedEmoji,
   } = useMainContext();
@@ -79,19 +77,7 @@ const Drawer = () => {
       />
       <div className={`drawer-container ${isOpen ? 'open' : ''}`} ref={drawerRef}>
         <h3 className="drawer-title">ChatPéTé</h3>
-        <div className="drawer-title-divider"></div>
-        <div className="reset-select-container">
-          <button
-            className="reset-history-button"
-            onClick={() => {
-              setInitialHistory();
-              alert('L\'historique de conversation a été réinitialisé avec succés');
-            }}
-          >
-            Réinitialiser l'historique
-          </button>
-        </div>
-        <br/>
+        <div className="drawer-title-divider" />
         <div className="checkbox-container">
           <label className="checkbox-label">
             Cursor animation:&nbsp;
@@ -134,17 +120,6 @@ const Drawer = () => {
             onKeyDown={(event) => event.stopPropagation()}
             onKeyUp={(event) => event.stopPropagation()}
           ></textarea>
-        </div>
-        <div className="checkbox-container">
-          <label className="checkbox-label">
-            Loop:&nbsp;
-            <input
-              className="checkbox-input"
-              type="checkbox"
-              checked={selfDiscussEnabled}
-              onChange={() => setSelfDiscussedEnabled(!selfDiscussEnabled)}
-            />
-          </label>
         </div>
         <br/><br/><br/>
         <div className='emoji-container'>
