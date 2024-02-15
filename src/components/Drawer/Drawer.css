@@ -96,3 +96,34 @@
   cursor: pointer;
   opacity: 1;
 }
+
+.emoji-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.lottie-emoji {
+  width: 4rem;
+  cursor: pointer;
+}
+
+.reset-history-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.reset-history-button {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.reset-history-button:hover {
+  background-color: #357ab8;
+}

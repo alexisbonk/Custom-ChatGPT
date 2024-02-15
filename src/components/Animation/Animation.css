@@ -24,7 +24,6 @@
 .lottie-animation {
   width: 50vw;
   transition: transform 0.2s ease-out;
-  cursor: none;
   --cursor-x: 0px;
   --cursor-y: 0px;
 }

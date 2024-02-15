@@ -16,6 +16,7 @@ export const AudioRecorder = () => {
     isRecording,
     setIsProcessing,
     selectedVoice,
+    selectedVersion,
     selfDiscussEnabled,
   } = useMainContext();
 
@@ -63,7 +64,7 @@ export const AudioRecorder = () => {
 
   const processTranscription = useCallback(async (transcript) => {
     setIsProcessing(true);
-    const chatGptResponse = selfDiscussEnabled ? await selfDiscuss(transcript) : await sendPromptToChatGpt(transcript);
+    const chatGptResponse = selfDiscussEnabled ? await selfDiscuss(transcript, selectedVersion) : await sendPromptToChatGpt(transcript, selectedVersion);
     const audioContent = await sendTextToGoogleTextToSpeech(chatGptResponse, selectedVoice);
     setIsProcessing(false);
     await playAudioResponse(audioContent);

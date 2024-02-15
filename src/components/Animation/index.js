@@ -8,7 +8,7 @@ import './Animation.css';
 
 export const StartScreen = ({ onStartButtonClicked }) => {
   const [displayCursor, setDisplayCursor] = useState(false);
-  const { isPlaying, startPressed, setStartPressed, isRecording } = useMainContext();
+  const { isPlaying, startPressed, setStartPressed, isRecording, isCursorDisabled } = useMainContext();
   const lottieRef = useRef(null);
 
   const handleMouseEnter = () => {
@@ -58,12 +58,12 @@ export const StartScreen = ({ onStartButtonClicked }) => {
         animationData={isPlaying ? PromptPlayedAnimation : PromptAnimation}
         loop={true}
         lottieRef={lottieRef}
-        style={!startPressed ? { pointerEvents: 'none' } : {}}
+        style={!startPressed ? { pointerEvents: 'none' } : { cursor: isCursorDisabled ? 'none' : 'initial' }}
         onMouseEnter={showCursor}
         onMouseLeave={hideCursor}
         onMouseMove={() => !displayCursor && showCursor()}
       />
-      <div id="lottie-cursor" className={displayCursor ? '' : 'hidden'} />
+      {isCursorDisabled && <div id="lottie-cursor" className={displayCursor ? '' : 'hidden'} />}
     </div>
   );
 };
