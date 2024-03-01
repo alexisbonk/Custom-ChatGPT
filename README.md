@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# Custom ChatGPT
+This project is based on integrating Google's STT (Speech-to-Text) and TTS (Text-to-Speech) with ChatGPT, creating a seamless conversational experience.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Screenshots
 
-## Available Scripts
+<img width="1435" alt="Capture d’écran 2024-02-29 à 19 56 47" src="https://github.com/alexisbonk/Custom-ChatGPT/assets/69346752/30d91fb0-c8a4-4d59-a0b0-3607a99f2669">
 
-In the project directory, you can run:
+<img width="1435" alt="Capture d’écran 2024-02-29 à 19 57 36" src="https://github.com/alexisbonk/Custom-ChatGPT/assets/69346752/62aab8ff-8ffb-45f4-b4b9-d1e8f92d9a55">
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Clone the repo
 
-### `npm test`
+   ```sh
+    git clone https://github.com/alexisbonk/Custom-ChatGPT.git
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2.  Install all packages
+    ```sh
+    npm install
+    ```
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3.  Add .env file and add the following:
+    ```.env
+    REACT_APP_GOOGLE_API_KEY=YOUR_API_KEY
+    REACT_APP_OPENAI_API_KEY=YOUR_API_KEY
+    ```
+    
+4.  Then have fun!
+    ```sh
+    npm start
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Here are the features already available:
 
-### `npm run eject`
+- **Loop button**: Allows GPT to converse with itself. ✔️
+- **Version**: Enables changing the GPT version (GPT-4 Turbo, GPT-4, or GPT-3.5 Turbo). ✔️
+- **Voices**: Allows changing the voice for TTS (See [Google docs](https://cloud.google.com/text-to-speech/docs/voices)) ✔️
+- **Custom prompt**: Enables manually entering a custom prompt at any time. ✔️
+- **Mood**: Sets the AI's mood (funny, sad, angry, or in love). ✔️
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Nice to have
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Emojis that pop up during GPT's responses.
+- Capability to interpret code input/output.
+- Any other feature you can think of!
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Author
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Alexis Knob - [Website](https://www.bonko.fr/)
+- Julien Meziere - [Github](https://github.com/JulienMeziere)
